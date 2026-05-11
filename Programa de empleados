@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class EmpresaSueldos {
+
+    public static void main(String[] args) {
+
+        Scanner teclado = new Scanner(System.in);
+
+        int cantEmpleados;
+        int cantEntre100Y300 = 0;
+        int cantMayor300 = 0;
+        double sueldo;
+        double importeTotal = 0;
+
+        System.out.print("Ingrese cantidad de empleados: ");
+        cantEmpleados = teclado.nextInt();
+
+        for (int i = 1; i <= cantEmpleados; i++) {
+
+            System.out.print("Ingrese sueldo del empleado " + i + ": ");
+            sueldo = teclado.nextDouble();
+
+            // Acumular total
+            importeTotal += sueldo;
+
+            // Contar empleados
+            if (sueldo >= 100 && sueldo <= 300) {
+
+                cantEntre100Y300++;
+
+            } else if (sueldo > 300) {
+
+                cantMayor300++;
+            }
+        }
+
+        System.out.println("\nRESULTADOS");
+        System.out.println("Empleados entre 100 y 300: " + cantEntre100Y300);
+        System.out.println("Empleados mayores a 300: " + cantMayor300);
+        System.out.println("Importe total en sueldos: $" + importeTotal);
+
+        teclado.close();
+    }
+}
